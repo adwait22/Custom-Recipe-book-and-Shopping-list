@@ -10,7 +10,7 @@ import { AuthService } from '../auth/auth.service';
 export class DataStorageService {
   constructor(private httpClient: HttpClient,
               private recipeService: RecipeService,
-              private authService: AuthService) {
+              public authService: AuthService) {
   }
 
   storeRecipes() {
