@@ -11,23 +11,31 @@ export class RecipeService {
 
   private recipes: Recipe[] = [
     new Recipe(
-      'Tasty Schnitzel',
-      'A super-tasty Schnitzel - just awesome!',
-      'https://upload.wikimedia.org/wikipedia/commons/7/72/Schnitzel.JPG',
+      'Aalo Paratha',
+      'Soft dough stuffed with the spicy filling of mashed potatoes with coriander, chillies and other spices and then rolled out into big round parathas. It tastes best with a dollop of butter!!',
+      'https://i.ndtvimg.com/i/2015-11/paratha-625_625x350_61446476643.jpg?downsize=650:400&output-quality=70&output-format=webp',
       [
-        new Ingredient('Meat', 1),
-        new Ingredient('French Fries', 20)
+        new Ingredient('Whole wheat flour', 250),
+        new Ingredient('Potatoes', 500),
+        new Ingredient('Butter', 1)
       ]),
-    new Recipe('Big Fat Burger',
-      'What else you need to say?',
-      'https://upload.wikimedia.org/wikipedia/commons/b/be/Burger_King_Angus_Bacon_%26_Cheese_Steak_Burger.jpg',
+    new Recipe('Moong Dal',
+      'Moong dal is amongst one of the most commonly used lentils in India.',
+      'https://www.archanaskitchen.com/images/archanaskitchen/1-Author/nithya.anantham/Trevti_Daal_Gujarati_Style_Creamy_Lentils_Cooked_in_Mild_Spices.jpg',
       [
-        new Ingredient('Buns', 2),
-        new Ingredient('Meat', 1)
+        new Ingredient('Moong dal', 250),
+        new Ingredient('Red Chilli', 10),
+        new Ingredient('Tumeric Powder', 10),
+        new Ingredient('Onions', 2)
       ])
   ];
 
   constructor(private slService: ShoppingListService) {}
+
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.recipesChanged.next(this.recipes.slice());
+  }
 
   getRecipes() {
     return this.recipes.slice();
