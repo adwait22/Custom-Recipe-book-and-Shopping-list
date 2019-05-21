@@ -10,7 +10,7 @@ import { AuthService } from '../../auth/auth.service';
 })
 export class HeaderComponent {
   constructor(private dataStorageService: DataStorageService,
-              public authService: AuthService) {
+              private authService: AuthService) {
   }
 
   onSaveData() {
